@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_host"
+    app:startDestination="@id/FR_Splash">
+
+    <argument android:name="@string/ML_UpdateUrl"/>
+
+    <argument android:name="@string/ML_UpdateFile"/>
+
+    <fragment
+        android:id="@+id/FR_Splash"
+        android:name="ir.ngra.warehousekeeper.view.fragment.FR_Splash"
+        android:label="FR_Splash"
+        tools:layout="@layout/fr_splash">
+
+        <action
+            android:id="@+id/action_FR_Splash_to_FR_Login"
+            app:destination="@id/FR_Login"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
+
+        <action
+            android:id="@+id/action_FR_Splash_to_FR_AppUpdate"
+            app:destination="@id/FR_AppUpdate"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/FR_Login"
+        android:name="ir.ngra.warehousekeeper.view.fragment.FR_Login"
+        android:label="FR_Login"
+        tools:layout="@layout/fr_login"/>
+
+    <fragment
+        android:id="@+id/FR_AppUpdate"
+        android:name="ir.ngra.warehousekeeper.view.fragment.FR_AppUpdate"
+        android:label="FR_AppUpdate"
+        tools:layout="@layout/fr_update"/>
+
+</navigation>

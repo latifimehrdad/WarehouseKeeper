@@ -1,0 +1,42 @@
+<resources>
+
+    <string name="app_name">WarehouseKeeper</string>
+    <string name="UpdateAppName">WarehouseKeeper</string>
+
+
+    <string name="NetworkError">خطای ارتباط با سرور</string>
+    <string name="PleaseTryAgain">تلاش دوباره کنید</string>
+    <string name="Ignore">بستن</string>
+    <string name="mobileNumber">تلفن همراه</string>
+    <string name="password">رمز ورود</string>
+    <string name="logIn">ورود به برنامه</string>
+    <string name="emptyPhoneNumber">شماره موبایل را بصورت صحیح وارد نمایید</string>
+    <string name="emptyPassword">رمز ورود را وارد نمایید</string>
+    <string name="installApp">نصب برنامه</string>
+    <string name="pleaseWait">شکیبا باشید ...</string>
+    <string name="DownloadingFile">بارگیری فایل ...</string>
+    <string name="FileDownloaded">پایان بارگیری فایل</string>
+    <string name="InstallApp">نصب بروزرسانی برنامه</string>
+
+    <string name="ML_SharePreferences">sharePreferences</string>
+    <string name="ML_AccessToken">accessToken</string>
+    <string name="ML_Expires">expires</string>
+    <string name="ML_RefreshToken">refreshToken</string>
+    <string name="ML_PhoneNumber">phoneNumber</string>
+    <string name="ML_Password">password</string>
+    <string name="ML_TokenType">tokenType</string>
+    <string name="ML_ExpireSin">expireSin</string>
+    <string name="ML_ClientId">clientId</string>
+    <string name="ML_Issued">issued</string>
+    <string name="ML_CompleteProfile">completeProfile</string>
+    <string name="ML_Name">Name</string>
+    <string name="ML_lastName">LastName</string>
+    <string name="ML_Gender">Gender</string>
+    <string name="ML_AddressCompleted">AddressCompleted</string>
+    <string name="ML_UpdateUrl">UpdateUrl</string>
+    <string name="ML_UpdateFile">UpdateFile</string>
+
+
+
+
+</resources>
