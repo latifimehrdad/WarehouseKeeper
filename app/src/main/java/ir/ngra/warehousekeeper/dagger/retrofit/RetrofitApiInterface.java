@@ -4,16 +4,22 @@ package ir.ngra.warehousekeeper.dagger.retrofit;
 
 import ir.ngra.warehousekeeper.model.MD_ProfileInfo;
 import ir.ngra.warehousekeeper.model.MD_Token;
+import ir.ngra.warehousekeeper.model.MD_WasteAmountRequests;
 import ir.ngra.warehousekeeper.model.MR_Hi;
+import ir.ngra.warehousekeeper.model.MR_ItemsWast;
 import ir.ngra.warehousekeeper.model.MR_Primary;
 import ir.ngra.warehousekeeper.model.MR_Register;
+import ir.ngra.warehousekeeper.model.MR_ResponseWaste;
+import ir.ngra.warehousekeeper.model.MR_Weights;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 import retrofit2.http.Streaming;
 import retrofit2.http.Url;
 
@@ -92,7 +98,7 @@ public interface RetrofitApiInterface {
                     @Field("client_secret") String client_secret,
                     @Field("grant_type") String grant_type,
                     @Field("username") String PhoneNumber,
-                    @Field("code") String code,
+                    @Field("Password") String Password,
                     @Header("Authorization") String Authorization
 
             );
@@ -120,6 +126,75 @@ public interface RetrofitApiInterface {
                     @Field("name") String name
             );
 
+
+    @GET(Version + "/requestwarehousedelivery/getrequestwarehousedeliveries")
+    Call<MR_ResponseWaste> getWasteCollection
+            (
+                    @Query("State") Byte State,
+                    @Header("Authorization") String Authorization
+            );
+
+
+    @FormUrlEncoded
+    @POST(Version + "/requestwarehouse/warehousedelivered")
+    Call<MR_Primary> WasteCollectionDeliver
+            (
+                    @Field("RequestCode") String RequestCode,
+                    @Header("Authorization") String Authorization
+            );
+
+
+    @FormUrlEncoded
+    @POST(Version + "/requestwarehouse/warehousenotdelivered")
+    Call<MR_Primary> WasteCollectionNotDeliver
+            (
+                    @Field("RequestCode") String RequestCode,
+                    @Header("Authorization") String Authorization
+            );
+
+    @GET(Version + "/Waste/WasteList")
+    Call<MR_ItemsWast> getWasteList
+            (
+                    @Header("Authorization") String Authorization
+
+            );
+
+
+
+    @GET(Version + "/utility/getWeights")
+    Call<MR_Weights> getWeights
+            (
+                    @Header("Authorization") String Authorization
+
+            );
+
+
+    @POST(Version + "/Requestwarehouse/LadingRequestwarehouse")
+    Call<MR_Primary> LadingRequestCollection
+            (
+                    @Body MD_WasteAmountRequests WasteAmountRequests,
+                    @Header("Authorization") String Authorization
+
+            );
+
+
+    @FormUrlEncoded
+    @POST(Version + "/Requestwarehouse/ConfirmRequest")
+    Call<MR_Primary> ConfirmRequest
+            (
+                    @Field("RequestCode") String RequestCode,
+                    @Field("Code") String Code,
+                    @Header("Authorization") String Authorization
+            );
+
+
+    @FormUrlEncoded
+    @POST(Version + "/Requestwarehouse/resendconfirmrequest")
+    Call<MR_Primary> ReTryVerifyCode
+            (
+                    @Field("RequestCode") String RequestCode,
+                    @Header("Authorization") String Authorization
+            );
 
 
 }

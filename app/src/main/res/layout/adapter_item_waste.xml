@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="waste"
+            type="ir.ngra.warehousekeeper.model.MD_ItemWaste" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_4sdp"
+        android:layout_marginRight="@dimen/_4sdp"
+        android:orientation="vertical"
+        android:background="@drawable/edit_normal_background"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            app:SetImageItemOfWast="@{waste.cover}"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/colorDialogBack"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_marginBottom="@dimen/_3sdp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_8sdp"
+            android:textColor="@color/colorBlack"
+            android:gravity="center"
+            android:lines="2"
+            android:padding="@dimen/_1sdp"
+            android:text="@{waste.title}"/>
+
+    </LinearLayout>
+
+</layout>

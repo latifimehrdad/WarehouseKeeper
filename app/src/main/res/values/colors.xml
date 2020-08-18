@@ -3,10 +3,12 @@
     <color name="colorPrimary">#08E1B0</color>
     <color name="colorPrimaryDark">#06A682</color>
     <color name="colorAccent">#08E1B0</color>
+    <color name="colorPrimaryVeryDark">#015B5C</color>
 
     <color name="colorButton">#4E94FF</color>
     <color name="colorButtonDark">#1D5CBC</color>
 
+    <color name="mlCollectLeft1">#6ACA03</color>
     <color name="colorHarmony">#EDF6F5</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorDialogBack">#F6F3F3</color>
@@ -15,5 +17,14 @@
     <color name="colorWarning">#FFDE3C</color>
     <color name="colorEditEmpty">#FBF2BA</color>
     <color name="colorTrance">#00000000</color>
+    <color name="Links">#0380ED</color>
+    <color name="mlMenuBack">#4E4E4E</color>
+    <color name="mlTextRegisterCode">#FF0000</color>
+    <color name="mlCollectRight1">#EF7F2F</color>
+    <color name="mlRecyclerButton1">#012963</color>
+    <color name="mlHomeMaxScore">#02639B</color>
+    <color name="mlCollectRight2">#A24A0B</color>
+    <color name="mlHomeAveScore">#E7414F</color>
+    <color name="mlTextRegisterCodeMessage">#8CC484</color>
 
 </resources>

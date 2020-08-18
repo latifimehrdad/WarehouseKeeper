@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto">
+    <data>
+
+        <variable
+            name="detail"
+            type="ir.ngra.warehousekeeper.viewmodel.VM_RequestDetail" />
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/_5sdp"
+        android:paddingLeft="@dimen/_5sdp"
+        android:paddingRight="@dimen/_5sdp"
+        >
+
+        <ScrollView
+            android:id="@+id/ScrollViewParent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_10sdp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+
+
+                <com.cunoraz.gifview.library.GifView
+                    android:id="@+id/gifLoading"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:visibility="gone"
+                    custom:gif="@drawable/loading2"
+                    android:background="@drawable/choose_current_map"
+                    android:padding="@dimen/_5sdp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/RecyclerViewItemsWaste"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"/>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/RecyclerViewWasteList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"/>
+
+
+                <RelativeLayout
+                    android:id="@+id/RelativeLayoutSendSms"
+                    android:layout_width="@dimen/_150sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/button_back">
+
+                    <TextView
+                        android:id="@+id/txtLoadingSms"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/SendUserVerifyCode"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/_13sdp"
+                        android:gravity="center"
+                        android:layout_toLeftOf="@id/imgLoadingSms"
+                        android:paddingRight="@dimen/_5sdp"
+                        />
+
+                    <ImageView
+                        android:id="@+id/imgLoadingSms"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:src="@drawable/svg_share"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:layout_centerVertical="true"
+                        custom:tint="@color/colorWhite" />
+
+                    <com.cunoraz.gifview.library.GifView
+                        android:id="@+id/gifLoadingSms"
+                        android:layout_width="@dimen/_22sdp"
+                        android:layout_height="@dimen/_22sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:visibility="invisible"
+                        custom:gif="@drawable/loading2" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/LinearLayoutVerify"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:gravity="center">
+
+
+                    <RelativeLayout
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        >
+
+                        <ProgressBar
+                            android:id="@+id/progressBar"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_100sdp"
+                            android:max="100"
+                            android:progress="20"
+                            android:layout_centerVertical="true"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/dw_half_circle_progress_back"
+                            android:progressDrawable="@drawable/dw_half_circle_progress" />
+
+
+                        <TextView
+                            android:id="@+id/message"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:gravity="center"
+                            android:textSize="@dimen/_9sdp"
+                            android:text="@string/ElapsedTimeGetSMS"
+                            android:maxLines="2"
+                            android:layout_marginTop="@dimen/_40sdp"
+                            />
+
+                        <TextView
+                            android:id="@+id/TimeElapsed"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimary"
+                            android:gravity="center"
+                            android:textSize="@dimen/_9sdp"
+                            android:text="1:56"
+                            android:maxLines="2"
+                            android:layout_below="@id/message"
+                            />
+
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="@color/colorPrimaryVeryDark"
+                        android:textSize="@dimen/_10sdp"
+                        fontPath="font/iransans_web_medium.ttf"
+                        android:text="@string/InputUserCode"/>
+
+                    <EditText
+                        android:id="@+id/EditTextVerify"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_11sdp"
+                        android:gravity="center"
+                        android:textColor="@color/colorBlack"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:inputType="number"
+                        android:padding="@dimen/_5sdp"
+                        android:background="@drawable/dw_back_item_ticket"/>
+
+                    <RelativeLayout
+                        android:id="@+id/RelativeLayoutSendVerify"
+                        android:layout_width="@dimen/_150sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/button_back">
+
+                        <TextView
+                            android:id="@+id/txtLoadingVerify"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="@string/VerifyUserCode"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/_13sdp"
+                            android:gravity="center"
+                            android:layout_toLeftOf="@id/imgLoadingVerify"
+                            android:paddingRight="@dimen/_5sdp"
+                            />
+
+                        <ImageView
+                            android:id="@+id/imgLoadingVerify"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:src="@drawable/svg_share"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="@dimen/_5sdp"
+                            android:layout_centerVertical="true"
+                            custom:tint="@color/colorWhite" />
+
+                        <com.cunoraz.gifview.library.GifView
+                            android:id="@+id/gifLoadingVerify"
+                            android:layout_width="@dimen/_22sdp"
+                            android:layout_height="@dimen/_22sdp"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="@dimen/_5sdp"
+                            android:visibility="invisible"
+                            custom:gif="@drawable/loading2" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+
+    </LinearLayout>
+
+</layout>

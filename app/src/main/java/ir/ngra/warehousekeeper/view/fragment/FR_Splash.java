@@ -79,11 +79,10 @@ public class FR_Splash extends FR_Primary implements FR_Primary.getActionFromObs
     public void getActionFromObservable(Byte action) {
 
         gifViewLoading.setVisibility(View.GONE);
-/*
         if (action.equals(StaticValues.ML_GoToHome)) {
-            navController.navigate(R.id.action_splash_to_home);
+            navController.navigate(R.id.action_FR_Splash_to_FR_Home);
             return;
-        }*/
+        }
 
         if (action.equals(StaticValues.ML_GoToUpdate)) {
             if (getContext() != null) {

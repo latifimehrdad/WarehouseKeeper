@@ -20,6 +20,18 @@ public class StaticValues {
     //***** Package Request *****
 
 
+    //***** Event Waste Collection State *****
+    public static Byte WasteCollectionStateAll = 0;
+    public static Byte WasteCollectionStateRequested = 1;
+    public static Byte WasteCollectionStateOnProgress = 2;
+    public static Byte WasteCollectionStateNoDelivery = 3;
+    public static Byte WasteCollectionStateDelivered = 4;
+    public static Byte WasteCollectionStateLading = 5;
+    public static Byte WasteCollectionStateAcceptLading = 6;
+    //***** Event Waste Collection State *****
+
+
+
     //***** Bad Events For Request *****
     public static Byte ML_ResponseError = -125;//درخواست ارسالی ایراد داشته
     public static Byte ML_ResponseFailure = -126;// درخواست انجام نشده به هر دلیلی مثل در دسترس نبودن شبکه
@@ -33,13 +45,6 @@ public class StaticValues {
     public static Byte ML_ItemsOFWasteAddition = 1;
     //***** Events Of Collect Request *****
 
-
-    //***** Event Waste Collection State *****
-    public static Byte WasteCollectionStateRequested = 1;
-    public static Byte WasteCollectionStateOnProgress = 2;
-    public static Byte WasteCollectionStateNoDelivery = 3;
-    public static Byte WasteCollectionStateDelivered = 4;
-    //***** Event Waste Collection State *****
 
 
     //**** Event Recycling Delivery Type *****
@@ -103,6 +108,8 @@ public class StaticValues {
     public static Byte ML_GetVolume = 34;
     public static Byte ML_GetUserAddress = 35;
     public static Byte ML_GetBestScore = 36;
+    public static Byte ML_GetWasteCollection = 37;
+    public static Byte ML_GotoVerify = 38;
     //***** Observable Control *****
 
 

@@ -17,6 +17,28 @@
     <string name="DownloadingFile">بارگیری فایل ...</string>
     <string name="FileDownloaded">پایان بارگیری فایل</string>
     <string name="InstallApp">نصب بروزرسانی برنامه</string>
+    <string name="Filtering">مرتب سازی</string>
+    <string name="WasteCollectionStateOnProgress">ارسال</string>
+    <string name="WasteCollectionStateNoDelivery">تحویل داده نشده</string>
+    <string name="WasteCollectionStateDelivered">تحویل داده شده</string>
+    <string name="WasteCollectionStateLading">در حال بارگیری</string>
+    <string name="Amount">مقدار :</string>
+    <string name="User">کاربر : </string>
+    <string name="RequestCode">شماره درخواست : </string>
+    <string name="DateTime">تاریخ : </string>
+    <string name="Address">آدرس :</string>
+    <string name="DetailRequest">نمایش جزییات</string>
+    <string name="FailureDeliver">عدم تحویل</string>
+    <string name="Deliver">تحویل</string>
+    <string name="SendUserVerifyCode">ارسال کد تایید</string>
+    <string name="ElapsedTimeGetSMS">زمان باقی مانده\n برای دریافت پیامک</string>
+    <string name="InputUserCode">کد ارسال شده برای تحویل دهنده بار را در کادر زیر وارد نمایید</string>
+    <string name="VerifyUserCode">تایید کد</string>
+    <string name="PleaseWait">درحال برقراری ارتباط ...</string>
+    <string name="Cancel">انصراف</string>
+    <string name="ReTryGetSMS">دریافت دوباره\n پیامک</string>
+    <string name="KGr">کیلو</string>
+    <string name="Delivered">تحویل داده شد</string>
 
     <string name="ML_SharePreferences">sharePreferences</string>
     <string name="ML_AccessToken">accessToken</string>
@@ -35,6 +57,7 @@
     <string name="ML_AddressCompleted">AddressCompleted</string>
     <string name="ML_UpdateUrl">UpdateUrl</string>
     <string name="ML_UpdateFile">UpdateFile</string>
+    <string name="ML_RequestCode">RequestCode</string>
 
 
 

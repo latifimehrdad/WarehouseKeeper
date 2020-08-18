@@ -9,6 +9,9 @@
 
     <argument android:name="@string/ML_UpdateFile"/>
 
+    <argument android:name="ML_RequestCode"
+        android:defaultValue="null"/>
+
     <fragment
         android:id="@+id/FR_Splash"
         android:name="ir.ngra.warehousekeeper.view.fragment.FR_Splash"
@@ -31,6 +34,14 @@
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_left"/>
 
+        <action
+            android:id="@+id/action_FR_Splash_to_FR_Home"
+            app:destination="@id/FR_Home"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
+
     </fragment>
 
     <fragment
@@ -44,5 +55,27 @@
         android:name="ir.ngra.warehousekeeper.view.fragment.FR_AppUpdate"
         android:label="FR_AppUpdate"
         tools:layout="@layout/fr_update"/>
+
+    <fragment
+        android:id="@+id/FR_Home"
+        android:name="ir.ngra.warehousekeeper.view.fragment.FR_Home"
+        android:label="FR_Home"
+        tools:layout="@layout/fr_home">
+
+        <action
+            android:id="@+id/action_FR_Home_to_FR_RequestDetail"
+            app:destination="@id/FR_RequestDetail"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/FR_RequestDetail"
+        android:name="ir.ngra.warehousekeeper.view.fragment.FR_RequestDetail"
+        android:label="FR_RequestDetail"
+        tools:layout="@layout/fr_request_detail"/>
 
 </navigation>

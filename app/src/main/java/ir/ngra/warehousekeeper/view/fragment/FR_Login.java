@@ -114,9 +114,9 @@ public class FR_Login extends FR_Primary implements FR_Primary.getActionFromObse
 
         dismissProgress();
 
-/*        if (action.equals(StaticValues.ML_GoToHome)) {
-            navController.navigate(R.id.action_login_to_Home);
-        }*/
+        if (action.equals(StaticValues.ML_GoToHome)) {
+            getContext().onBackPressed();
+        }
 
 
     }

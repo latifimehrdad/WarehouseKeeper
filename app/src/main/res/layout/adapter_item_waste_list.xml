@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="wasteList"
+            type="ir.ngra.warehousekeeper.model.MD_ItemsWasteList" />
+
+        <variable
+            name="weight1"
+            type="ir.ngra.warehousekeeper.model.MD_Weight" />
+
+        <variable
+            name="weight2"
+            type="ir.ngra.warehousekeeper.model.MD_Weight" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/_5sdp"
+        android:layout_margin="@dimen/_3sdp"
+        android:background="@drawable/dw_back_item_ticket">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+
+            <ImageView
+                android:id="@+id/ImageViewDelete"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:src="@drawable/svg_trash1"
+                app:tint="@color/mlTextRegisterCode" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_10sdp"
+                android:gravity="right"
+                android:text="@{wasteList.name}"
+                android:textColor="@color/colorBlack"
+                fontPath="font/iransans_web_medium.ttf"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/_5sdp">
+
+            <EditText
+                android:id="@+id/EditText1"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="wrap_content"
+                android:maxLength="5"
+                android:background="@drawable/dw_back_item_ticket"
+                android:padding="@dimen/_5sdp"
+                android:textSize="@dimen/_12sdp"
+                android:inputType="number"
+                android:gravity="center"
+                android:textColor="@color/colorBlack"
+                android:text="@{wasteList.amount1}"
+                android:tag="@{weight1.id}"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textColor="@color/colorDialogBack"
+                android:textSize="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_3sdp"
+                android:gravity="center"
+                android:text="@{weight1.title}"/>
+
+
+            <EditText
+                android:id="@+id/EditText2"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="wrap_content"
+                android:maxLength="5"
+                android:background="@drawable/dw_back_item_ticket"
+                android:padding="@dimen/_5sdp"
+                android:textSize="@dimen/_12sdp"
+                android:inputType="number"
+                android:gravity="center"
+                android:textColor="@color/colorBlack"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:text="@{wasteList.amount2}"
+                android:tag="@{weight2.id}"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_10sdp"
+                android:gravity="center"
+                android:layout_marginLeft="@dimen/_3sdp"
+                android:text="@{weight2.title}"/>
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</layout>
