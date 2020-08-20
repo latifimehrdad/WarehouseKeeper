@@ -1,6 +1,7 @@
 <resources>
 
-    <string name="app_name">WarehouseKeeper</string>
+<!--    <string name="app_name">پسماند خشک نگرا - انباردار</string>-->
+    <string name="app_name">پسماند خشک نگرا - سبززیور</string>
     <string name="UpdateAppName">WarehouseKeeper</string>
 
 
@@ -28,7 +29,7 @@
     <string name="DateTime">تاریخ : </string>
     <string name="Address">آدرس :</string>
     <string name="DetailRequest">نمایش جزییات</string>
-    <string name="FailureDeliver">عدم تحویل</string>
+    <string name="FailureDeliver">عدم دریافت</string>
     <string name="Deliver">تحویل</string>
     <string name="SendUserVerifyCode">ارسال کد تایید</string>
     <string name="ElapsedTimeGetSMS">زمان باقی مانده\n برای دریافت پیامک</string>
@@ -38,7 +39,7 @@
     <string name="Cancel">انصراف</string>
     <string name="ReTryGetSMS">دریافت دوباره\n پیامک</string>
     <string name="KGr">کیلو</string>
-    <string name="Delivered">تحویل داده شد</string>
+    <string name="Delivered">دریافت شد</string>
 
     <string name="ML_SharePreferences">sharePreferences</string>
     <string name="ML_AccessToken">accessToken</string>
