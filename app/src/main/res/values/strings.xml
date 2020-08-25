@@ -1,7 +1,8 @@
 <resources>
 
-    <string name="app_name">پسماند خشک نگرا - انباردار</string>
+
 <!--    <string name="app_name">پسماند خشک نگرا - سبززیور</string>-->
+    <string name="app_name">پسماند خشک نگرا - انباردار</string>
     <string name="UpdateAppName">WarehouseKeeper</string>
 
 

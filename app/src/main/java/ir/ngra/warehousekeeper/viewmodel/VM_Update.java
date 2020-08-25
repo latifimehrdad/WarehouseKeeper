@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.util.Pair;
+import android.widget.ProgressBar;
 
 import androidx.core.content.FileProvider;
 
@@ -16,6 +17,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 import ir.ngra.warehousekeeper.dagger.retrofit.RetrofitComponent;
+import ir.ngra.warehousekeeper.utility.DownloadTask;
 import ir.ngra.warehousekeeper.utility.StaticValues;
 import ir.ngra.warehousekeeper.view.application.WarehouseKeeper;
 import okhttp3.ResponseBody;
@@ -44,6 +46,18 @@ public class VM_Update extends VM_Primary {
         void onProgress(int progress);
     }
     //______________________________________________________________________________________________ ProgressDownload
+
+
+
+    //______________________________________________________________________________________________ downloadFile
+    public void downloadFile(String url, String filePath, ProgressBar bar) {
+
+        DownloadTask downloadTask = new DownloadTask(getContext(), filePath, bar, getPublishSubject());
+        downloadTask.execute(url);
+    }
+    //______________________________________________________________________________________________ downloadFile
+
+
 
 
     //______________________________________________________________________________________________ downloadFile
