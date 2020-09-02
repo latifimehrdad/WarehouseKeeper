@@ -149,6 +149,25 @@ public class FR_RequestDetail extends FR_Primary implements
 
 
         for (MD_Collect collect: FR_Home.estimateAmount){
+            Integer intAmount = Math.round(Float.valueOf(collect.getAmount()));
+            Integer kg = intAmount / 1000;
+            Integer gr = intAmount % 1000;
+            wasteLists.add(new MD_ItemsWasteList(
+                    collect.getWaste().getId(),
+                    collect.getWaste().getTitle(),
+                    vm_requestDetail.getMd_weights().get(1).getId(),
+                    vm_requestDetail.getMd_weights().get(0).getId(),
+                    "0",
+                    gr.toString()));
+
+            wasteLists.add(new MD_ItemsWasteList(
+                    collect.getWaste().getId(),
+                    collect.getWaste().getTitle(),
+                    vm_requestDetail.getMd_weights().get(1).getId(),
+                    vm_requestDetail.getMd_weights().get(0).getId(),
+                    kg.toString(),
+                    "0"));
+/*
             if (collect.getWeight().getId() == vm_requestDetail.getMd_weights().get(0).getId()) {
                 Integer intAmount = Math.round(Float.valueOf(collect.getAmount()));
                 wasteLists.add(new MD_ItemsWasteList(
@@ -167,7 +186,7 @@ public class FR_RequestDetail extends FR_Primary implements
                         collect.getWeight().getId(),
                         "",
                         intAmount.toString()));
-            }
+            }*/
         }
 
         SetItemsWasteListAdapter();
@@ -257,6 +276,7 @@ public class FR_RequestDetail extends FR_Primary implements
     }//_____________________________________________________________________________________________ SetItemsWasteAdapter
 
 
+
     private void SetItemsWasteListAdapter() {//_____________________________________________________ SetItemsWasteListAdapter
         ap_itemsWasteList = new AP_ItemsWasteList(wasteLists, FR_RequestDetail.this, vm_requestDetail.getMd_weights());
         RecyclerViewWasteList.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
@@ -280,8 +300,8 @@ public class FR_RequestDetail extends FR_Primary implements
                         waste.getTitle(),
                         vm_requestDetail.getMd_weights().get(0).getId(),
                         vm_requestDetail.getMd_weights().get(1).getId(),
-                        "",
-                        ""));
+                        "0",
+                        "0"));
             } else {
                 boolean duplicate = false;
                 for (MD_ItemsWasteList item : wasteLists) {
@@ -297,8 +317,8 @@ public class FR_RequestDetail extends FR_Primary implements
                             waste.getTitle(),
                             vm_requestDetail.getMd_weights().get(0).getId(),
                             vm_requestDetail.getMd_weights().get(1).getId(),
-                            "",
-                            ""));
+                            "0",
+                            "0"));
                 }
             }
             SetItemsWasteListAdapter();

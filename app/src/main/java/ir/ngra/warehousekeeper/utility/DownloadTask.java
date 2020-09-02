@@ -6,6 +6,7 @@ import android.os.Environment;
 import android.os.PowerManager;
 import android.widget.ProgressBar;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,7 +27,7 @@ public class DownloadTask extends AsyncTask<String, Integer, String> {
 
     public DownloadTask(Context context, String path, ProgressBar progressBar, PublishSubject<Byte> publishSubject) {
         this.context = context;
-        this.path = Environment.getExternalStorageDirectory() + "/pishtazan/" + path;
+        this.path = Environment.getExternalStorageDirectory() + "/WarehouseKeeper/" + path;
         this.progressBar = progressBar;
         this.publishSubject = publishSubject;
     }
@@ -36,6 +37,11 @@ public class DownloadTask extends AsyncTask<String, Integer, String> {
         InputStream input = null;
         OutputStream output = null;
         HttpURLConnection connection = null;
+        File file = new File(Environment.getExternalStorageDirectory() + "/WarehouseKeeper");
+        if (!file.exists()) {
+            file.mkdir();
+        }
+
         try {
             URL url = new URL(sUrl[0]);
             connection = (HttpURLConnection) url.openConnection();
