@@ -122,10 +122,10 @@ public class VM_RequestDetail extends VM_Primary {
         List<MD_Collect> collects = new ArrayList<>();
         for (MD_ItemsWasteList wasteList: wasteLists) {
             MD_ItemWaste waste = new MD_ItemWaste(wasteList.getId(), "", "");
-            MD_Weight weightKg = new MD_Weight(wasteList.getAmount1Id(),"",false);
-            collects.add(new MD_Collect(waste,wasteList.getAmount1(), weightKg));
-            MD_Weight weightGr = new MD_Weight(wasteList.getAmount2Id(),"",false);
-            collects.add(new MD_Collect(waste,wasteList.getAmount2(), weightGr));
+            MD_Weight weight1 = new MD_Weight(wasteList.getAmount1Id(),"",false);
+            collects.add(new MD_Collect(waste,wasteList.getAmount1(), weight1));
+            MD_Weight weight2 = new MD_Weight(wasteList.getAmount2Id(),"",false);
+            collects.add(new MD_Collect(waste,wasteList.getAmount2(), weight2));
         }
 
         MD_WasteAmountRequests wasteAmountRequests = new MD_WasteAmountRequests(RequestCode, collects);

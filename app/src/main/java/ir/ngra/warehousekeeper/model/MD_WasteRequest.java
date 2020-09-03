@@ -40,9 +40,10 @@ public class MD_WasteRequest {
     MD_Location location;
 
     @SerializedName("warehouseAmounts")
-    List<MD_Collect> estimateAmount;
+    List<MD_WarehouseAmounts> warehouseAmounts;
 
-    public MD_WasteRequest(String requestCode, Integer wasteCollectionState, String subscriptionCode, String address, MD_Citizen citizen, Date requestDate, Date deliverDate, String userFullName, String phoneNumber, MD_Location location, List<MD_Collect> estimateAmount) {
+
+    public MD_WasteRequest(String requestCode, Integer wasteCollectionState, String subscriptionCode, String address, MD_Citizen citizen, Date requestDate, Date deliverDate, String userFullName, String phoneNumber, MD_Location location, List<MD_WarehouseAmounts> warehouseAmounts) {
         this.requestCode = requestCode;
         this.wasteCollectionState = wasteCollectionState;
         this.subscriptionCode = subscriptionCode;
@@ -53,8 +54,9 @@ public class MD_WasteRequest {
         this.userFullName = userFullName;
         this.phoneNumber = phoneNumber;
         this.location = location;
-        this.estimateAmount = estimateAmount;
+        this.warehouseAmounts = warehouseAmounts;
     }
+
 
     public String getRequestCode() {
         return requestCode;
@@ -136,11 +138,11 @@ public class MD_WasteRequest {
         this.location = location;
     }
 
-    public List<MD_Collect> getEstimateAmount() {
-        return estimateAmount;
+    public List<MD_WarehouseAmounts> getWarehouseAmounts() {
+        return warehouseAmounts;
     }
 
-    public void setEstimateAmount(List<MD_Collect> estimateAmount) {
-        this.estimateAmount = estimateAmount;
+    public void setWarehouseAmounts(List<MD_WarehouseAmounts> warehouseAmounts) {
+        this.warehouseAmounts = warehouseAmounts;
     }
 }

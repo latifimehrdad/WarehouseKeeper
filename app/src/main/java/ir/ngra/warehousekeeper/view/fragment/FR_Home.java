@@ -24,7 +24,7 @@ import butterknife.BindView;
 import ir.ngra.warehousekeeper.R;
 import ir.ngra.warehousekeeper.databinding.FrHomeBinding;
 
-import ir.ngra.warehousekeeper.model.MD_Collect;
+import ir.ngra.warehousekeeper.model.MD_WarehouseAmounts;
 import ir.ngra.warehousekeeper.utility.StaticValues;
 import ir.ngra.warehousekeeper.view.adapter.AP_WasteRequest;
 import ir.ngra.warehousekeeper.viewmodel.VM_Home;
@@ -37,7 +37,7 @@ public class FR_Home extends FR_Primary implements
     private VM_Home vm_home;
     private NavController navController;
     private Byte SortType;
-    public static List<MD_Collect> estimateAmount;
+    public static List<MD_WarehouseAmounts> wareHouseAmount;
 
 
     @BindView(R.id.LinearLayoutWasteCollectionStateOnProgress)
@@ -197,7 +197,7 @@ public class FR_Home extends FR_Primary implements
     @Override
     public void itemOrderClick(Integer position) {//________________________________________________ itemOrderClick
 
-        estimateAmount = vm_home.getMd_wasteRequests().get(position).getEstimateAmount();
+        wareHouseAmount = vm_home.getMd_wasteRequests().get(position).getWarehouseAmounts();
         Bundle bundle = new Bundle();
         bundle.putString(getContext().getResources().getString(R.string.ML_RequestCode), vm_home.getMd_wasteRequests().get(position).getRequestCode());
         navController.navigate(R.id.action_FR_Home_to_FR_RequestDetail, bundle);

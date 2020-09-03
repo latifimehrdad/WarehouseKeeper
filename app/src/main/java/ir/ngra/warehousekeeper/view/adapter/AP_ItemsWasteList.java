@@ -88,8 +88,6 @@ public class AP_ItemsWasteList extends RecyclerView.Adapter<AP_ItemsWasteList.Cu
 
         public void bind(MD_ItemsWasteList item, final int position) {
             binding.setWasteList(item);
-            binding.setWeight1(md_weights.get(0));
-            binding.setWeight2(md_weights.get(1));
 
             EditText1.addTextChangedListener(TextChangeForChangeBack(position, 0));
             EditText2.addTextChangedListener(TextChangeForChangeBack(position, 1));

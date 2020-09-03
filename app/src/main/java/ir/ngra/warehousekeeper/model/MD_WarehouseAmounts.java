@@ -4,20 +4,16 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class MD_Collect {
+public class MD_WarehouseAmounts {
 
     @SerializedName("waste")
     private MD_ItemWaste Waste;
 
-    @SerializedName("amount")
-    private String Amount;
-
     @SerializedName("weight")
-    private MD_Weight Weight;
+    private List<Md_WeightWareHouseAmounts> Weight;
 
-    public MD_Collect(MD_ItemWaste waste, String amount, MD_Weight weight) {
+    public MD_WarehouseAmounts(MD_ItemWaste waste, List<Md_WeightWareHouseAmounts> weight) {
         Waste = waste;
-        Amount = amount;
         Weight = weight;
     }
 
@@ -29,19 +25,11 @@ public class MD_Collect {
         Waste = waste;
     }
 
-    public String getAmount() {
-        return Amount;
-    }
-
-    public void setAmount(String amount) {
-        Amount = amount;
-    }
-
-    public MD_Weight getWeight() {
+    public List<Md_WeightWareHouseAmounts> getWeight() {
         return Weight;
     }
 
-    public void setWeight(MD_Weight weight) {
+    public void setWeight(List<Md_WeightWareHouseAmounts> weight) {
         Weight = weight;
     }
 }

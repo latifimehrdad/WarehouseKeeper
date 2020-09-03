@@ -11,16 +11,22 @@ public class MD_ItemsWasteList {
 
     String Amount2Id;
 
+    String title1;
+
+    String title2;
+
     String Amount1;
 
     String Amount2;
 
 
-    public MD_ItemsWasteList(Integer id, String name, String amount1Id, String amount2Id, String amount1, String amount2) {
+    public MD_ItemsWasteList(Integer id, String name, String amount1Id, String amount2Id, String title1, String title2, String amount1, String amount2) {
         Id = id;
         Name = name;
         Amount1Id = amount1Id;
         Amount2Id = amount2Id;
+        this.title1 = title1;
+        this.title2 = title2;
         Amount1 = amount1;
         Amount2 = amount2;
     }
@@ -56,6 +62,22 @@ public class MD_ItemsWasteList {
 
     public void setAmount2Id(String amount2Id) {
         Amount2Id = amount2Id;
+    }
+
+    public String getTitle1() {
+        return title1;
+    }
+
+    public void setTitle1(String title1) {
+        this.title1 = title1;
+    }
+
+    public String getTitle2() {
+        return title2;
+    }
+
+    public void setTitle2(String title2) {
+        this.title2 = title2;
     }
 
     public String getAmount1() {

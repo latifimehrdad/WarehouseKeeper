@@ -6,14 +6,6 @@
             name="wasteList"
             type="ir.ngra.warehousekeeper.model.MD_ItemsWasteList" />
 
-        <variable
-            name="weight1"
-            type="ir.ngra.warehousekeeper.model.MD_Weight" />
-
-        <variable
-            name="weight2"
-            type="ir.ngra.warehousekeeper.model.MD_Weight" />
-
     </data>
 
     <LinearLayout
@@ -55,6 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:gravity="center_vertical"
             android:layout_marginTop="@dimen/_5sdp">
 
             <EditText
@@ -69,16 +62,16 @@
                 android:gravity="center"
                 android:textColor="@color/colorBlack"
                 android:text="@{wasteList.amount1}"
-                android:tag="@{weight1.id}"/>
+                android:tag="@{wasteList.amount1Id}"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:textColor="@color/colorDialogBack"
+                android:textColor="@color/colorBlack"
                 android:textSize="@dimen/_10sdp"
                 android:layout_marginLeft="@dimen/_3sdp"
                 android:gravity="center"
-                android:text="@{weight1.title}"/>
+                android:text="@{wasteList.title1}"/>
 
 
             <EditText
@@ -94,7 +87,7 @@
                 android:textColor="@color/colorBlack"
                 android:layout_marginLeft="@dimen/_15sdp"
                 android:text="@{wasteList.amount2}"
-                android:tag="@{weight2.id}"/>
+                android:tag="@{wasteList.amount2Id}"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -103,7 +96,7 @@
                 android:textSize="@dimen/_10sdp"
                 android:gravity="center"
                 android:layout_marginLeft="@dimen/_3sdp"
-                android:text="@{weight2.title}"/>
+                android:text="@{wasteList.title2}"/>
 
 
         </LinearLayout>

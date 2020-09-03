@@ -31,8 +31,8 @@ import butterknife.BindView;
 import ir.ngra.warehousekeeper.R;
 import ir.ngra.warehousekeeper.databinding.FrRequestDetailBinding;
 import ir.ngra.warehousekeeper.model.MD_Collect;
-import ir.ngra.warehousekeeper.model.MD_ItemWaste;
 import ir.ngra.warehousekeeper.model.MD_ItemsWasteList;
+import ir.ngra.warehousekeeper.model.MD_WarehouseAmounts;
 import ir.ngra.warehousekeeper.utility.StaticValues;
 import ir.ngra.warehousekeeper.view.adapter.AP_ItemsWaste;
 import ir.ngra.warehousekeeper.view.adapter.AP_ItemsWasteList;
@@ -148,25 +148,24 @@ public class FR_RequestDetail extends FR_Primary implements
     private void initList() {//_____________________________________________________________________ initList
 
 
-        for (MD_Collect collect: FR_Home.estimateAmount){
-            Integer intAmount = Math.round(Float.valueOf(collect.getAmount()));
-            Integer kg = intAmount / 1000;
-            Integer gr = intAmount % 1000;
+        for (MD_WarehouseAmounts amounts: FR_Home.wareHouseAmount){
             wasteLists.add(new MD_ItemsWasteList(
-                    collect.getWaste().getId(),
-                    collect.getWaste().getTitle(),
-                    vm_requestDetail.getMd_weights().get(1).getId(),
-                    vm_requestDetail.getMd_weights().get(0).getId(),
-                    "0",
-                    gr.toString()));
+                    amounts.getWaste().getId(),
+                    amounts.getWaste().getTitle(),
+                    amounts.getWeight().get(0).getMeasure().getId(),
+                    amounts.getWeight().get(1).getMeasure().getId(),
+                    amounts.getWeight().get(0).getMeasure().getTitle(),
+                    amounts.getWeight().get(1).getMeasure().getTitle(),
+                    String.valueOf(Math.round(amounts.getWeight().get(0).getValue())),
+                    String.valueOf(Math.round(amounts.getWeight().get(1).getValue()))));
 
-            wasteLists.add(new MD_ItemsWasteList(
+/*            wasteLists.add(new MD_ItemsWasteList(
                     collect.getWaste().getId(),
                     collect.getWaste().getTitle(),
                     vm_requestDetail.getMd_weights().get(1).getId(),
                     vm_requestDetail.getMd_weights().get(0).getId(),
                     kg.toString(),
-                    "0"));
+                    "0"));*/
 /*
             if (collect.getWeight().getId() == vm_requestDetail.getMd_weights().get(0).getId()) {
                 Integer intAmount = Math.round(Float.valueOf(collect.getAmount()));
@@ -292,7 +291,7 @@ public class FR_RequestDetail extends FR_Primary implements
     @Override
     public void itemWastClick(Integer position) {//_________________________________________________ itemWastClick
 
-        if (getContext() != null) {
+/*        if (getContext() != null) {
             MD_ItemWaste waste = vm_requestDetail.getMd_itemWastes().get(position);
             if (wasteLists.size() == 0) {
                 wasteLists.add(new MD_ItemsWasteList(
@@ -324,7 +323,7 @@ public class FR_RequestDetail extends FR_Primary implements
             SetItemsWasteListAdapter();
             RelativeLayoutSendSms.setVisibility(View.VISIBLE);
             LinearLayoutVerify.setVisibility(View.GONE);
-        }
+        }*/
 
     }//_____________________________________________________________________________________________ itemWastClick
 
