@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cunoraz.gifview.library.GifView;
+import com.dinuscxj.refresh.RecyclerRefreshLayout;
 
 import net.cachapa.expandablelayout.ExpandableLayout;
 
@@ -64,6 +65,9 @@ public class FR_Home extends FR_Primary implements
     @BindView(R.id.LinearLayoutExpandClick)
     LinearLayout LinearLayoutExpandClick;
 
+    @BindView(R.id.recyclerRefreshLayout)
+    RecyclerRefreshLayout recyclerRefreshLayout;
+
 
     //______________________________________________________________________________________________ FR_Home
     public FR_Home() {
@@ -113,6 +117,7 @@ public class FR_Home extends FR_Primary implements
     public void getActionFromObservable(Byte action) {
 
         gifLoading.setVisibility(View.GONE);
+        recyclerRefreshLayout.setRefreshing(false);
         if (action.equals(StaticValues.ML_GetWasteCollection)) {
             setAdapterWaste();
             return;
@@ -124,6 +129,12 @@ public class FR_Home extends FR_Primary implements
 
     //______________________________________________________________________________________________ setOnclick
     private void setOnclick() {
+
+
+        recyclerRefreshLayout.setOnRefreshListener(() -> {
+            getListOfRequest();
+        });
+
 
         LinearLayoutExpandClick.setOnClickListener(v -> {
             if (ExpandableLayoutItemSort.isExpanded())
@@ -159,6 +170,7 @@ public class FR_Home extends FR_Primary implements
     //______________________________________________________________________________________________ getListOfRequest
     private void getListOfRequest() {
 
+        recyclerRefreshLayout.setRefreshing(true);
         gifLoading.setVisibility(View.VISIBLE);
         ExpandableLayoutItemSort.collapse();
         vm_home.getWasteCollection(SortType);
