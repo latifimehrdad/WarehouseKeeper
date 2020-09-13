@@ -168,7 +168,7 @@
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/_10sdp"
                 android:gravity="right"
-                app:SetJalaliDate="@{wastRequest.deliverDate}"
+                app:SetJalaliDate="@{wastRequest.requestDate}"
                 />
 
             <TextView
@@ -190,6 +190,7 @@
             android:layout_marginBottom="@dimen/_2sdp"
             android:orientation="horizontal"
             android:gravity="center_vertical"
+            android:visibility="gone"
             >
 
             <ImageView

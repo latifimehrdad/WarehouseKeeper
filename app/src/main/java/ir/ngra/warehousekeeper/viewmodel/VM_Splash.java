@@ -219,18 +219,19 @@ public class VM_Splash extends VM_Primary {
     //______________________________________________________________________________________________ checkUpdate
     private void checkUpdate() {
         PackageInfo pInfo;
-        int version = 0;
+        float versionName = 0;
         try {
             pInfo = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0);
-            version = pInfo.versionCode;
+            versionName = Float.valueOf(pInfo.versionName);
         } catch (PackageManager.NameNotFoundException ignored) {
         }
 
         String v = md_hi.getVersion();
         v = v.replaceAll("v", "");
+        float lastVersion = Float.valueOf(v);
 
 
-        if (version < Integer.parseInt(v))
+        if (versionName < lastVersion)
             sendActionToObservable(StaticValues.ML_GoToUpdate);
         else
             checkToken();

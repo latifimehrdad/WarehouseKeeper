@@ -8,8 +8,8 @@ android {
         applicationId "ir.ngra.warehousekeeper"
         minSdkVersion 18
         targetSdkVersion 30
-        versionCode 3
-        versionName "3.0"
+        versionCode 1
+        versionName "1.0"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -85,5 +85,7 @@ dependencies {
     implementation 'io.github.inflationx:calligraphy3:3.1.1'
 
     implementation 'com.dinuscxj:recyclerrefreshlayout:2.0.5'
+
+    implementation 'com.yangping:ypwaveview:1.0.3'
 
 }

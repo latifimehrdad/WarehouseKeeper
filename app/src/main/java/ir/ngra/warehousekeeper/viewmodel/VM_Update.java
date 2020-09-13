@@ -10,6 +10,8 @@ import android.widget.ProgressBar;
 
 import androidx.core.content.FileProvider;
 
+import com.yangp.ypwaveview.YPWaveView;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -27,37 +29,34 @@ import retrofit2.Response;
 
 public class VM_Update extends VM_Primary {
 
-    private VM_Update.downloadZipFileTask downloadZipFileTask;
+    private downloadFileTask downloadFileTask;
     private String FileName;
-    private ProgressDownload progressDownload;
+    private progressDownload progressDownload;
 
 
     //______________________________________________________________________________________________ VM_Update
-    public VM_Update(Activity context, ProgressDownload progressDownload) {
+    public VM_Update(Activity context, VM_Update.progressDownload progressDownload) {
         setContext(context);
         this.progressDownload = progressDownload;
     }
     //______________________________________________________________________________________________ VM_Update
 
 
-    //______________________________________________________________________________________________ ProgressDownload
-    public interface ProgressDownload {
+    //______________________________________________________________________________________________ progressDownload
+    public interface progressDownload {
 
         void onProgress(int progress);
     }
-    //______________________________________________________________________________________________ ProgressDownload
-
+    //______________________________________________________________________________________________ progressDownload
 
 
     //______________________________________________________________________________________________ downloadFile
-    public void downloadFile(String url, String filePath, ProgressBar bar) {
+    public void downloadFile(String url, String filePath, YPWaveView ypWaveView) {
 
-        DownloadTask downloadTask = new DownloadTask(getContext(), filePath, bar, getPublishSubject());
+        DownloadTask downloadTask = new DownloadTask(getContext(), filePath, getPublishSubject());
         downloadTask.execute(url);
     }
     //______________________________________________________________________________________________ downloadFile
-
-
 
 
     //______________________________________________________________________________________________ downloadFile
@@ -79,8 +78,8 @@ public class VM_Update extends VM_Primary {
                 if (response.isSuccessful()) {
                     setResponseMessage("");
                     sendActionToObservable(StaticValues.ML_Success);
-                    downloadZipFileTask = new downloadZipFileTask();
-                    downloadZipFileTask.execute(response.body());
+                    downloadFileTask = new downloadFileTask();
+                    downloadFileTask.execute(response.body());
 
                 } else {
                     sendActionToObservable(StaticValues.ML_ResponseError);
@@ -98,9 +97,9 @@ public class VM_Update extends VM_Primary {
     //______________________________________________________________________________________________ downloadFile
 
 
-    //______________________________________________________________________________________________ downloadZipFileTask
+    //______________________________________________________________________________________________ downloadFileTask
     @SuppressLint("StaticFieldLeak")
-    private class downloadZipFileTask extends AsyncTask<ResponseBody, Pair<Integer, Long>, String> {
+    private class downloadFileTask extends AsyncTask<ResponseBody, Pair<Integer, Long>, String> {
 
         @Override
         protected void onPreExecute() {
@@ -140,7 +139,7 @@ public class VM_Update extends VM_Primary {
 
         }
     }
-    //______________________________________________________________________________________________ downloadZipFileTask
+    //______________________________________________________________________________________________ downloadFileTask
 
 
     //______________________________________________________________________________________________ saveToDisk
@@ -162,17 +161,17 @@ public class VM_Update extends VM_Primary {
                 outputStream.write(data, 0, count);
                 progress += count;
                 Pair<Integer, Long> pairs = new Pair<>(progress, fileSize);
-                downloadZipFileTask.doProgress(pairs);
+                downloadFileTask.doProgress(pairs);
             }
 
             outputStream.flush();
 
             Pair<Integer, Long> pairs = new Pair<>(100, 100L);
-            downloadZipFileTask.doProgress(pairs);
+            downloadFileTask.doProgress(pairs);
         } catch (IOException e) {
             e.printStackTrace();
             Pair<Integer, Long> pairs = new Pair<>(-1, (long) -1);
-            downloadZipFileTask.doProgress(pairs);
+            downloadFileTask.doProgress(pairs);
         }
     }
     //______________________________________________________________________________________________ saveToDisk
@@ -180,6 +179,7 @@ public class VM_Update extends VM_Primary {
 
     //______________________________________________________________________________________________ getTempUri
     public Uri getTempUri(String filename) {
+
         File imageFile;
         imageFile = new File(Environment.getExternalStorageDirectory()
                 + "/WarehouseKeeper/", filename);

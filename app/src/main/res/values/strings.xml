@@ -3,7 +3,9 @@
 
 <!--    <string name="app_name">پسماند خشک نگرا - سبززیور</string>-->
     <string name="app_name">پسماند خشک نگرا - انباردار</string>
-    <string name="UpdateAppName">WarehouseKeeper</string>
+
+
+    <string name="UpdateAppName">Samtam_WarehouseKeeper</string>
 
 
     <string name="NetworkError">خطای ارتباط با سرور</string>

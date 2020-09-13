@@ -9,7 +9,7 @@
 
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="@color/colorButton"/>
+            <solid android:color="@color/mlRecyclerButton1"/>
             <corners android:radius="@dimen/_5sdp" />
         </shape>
     </item>

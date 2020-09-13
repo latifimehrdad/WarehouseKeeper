@@ -31,5 +31,8 @@
     <color name="mlCollectRight2">#A24A0B</color>
     <color name="mlHomeAveScore">#E7414F</color>
     <color name="mlTextRegisterCodeMessage">#8CC484</color>
+    <color name="mlWave">#1A3AFF</color>
+    <color name="mlWave2">#5BB1FB</color>
+    <color name="mlCollectItems">#8CC484</color>
 
 </resources>
