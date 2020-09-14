@@ -3,6 +3,8 @@ package ir.ngra.warehousekeeper.viewmodel;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Handler;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -235,6 +237,7 @@ public class VM_Primary {
 
     //______________________________________________________________________________________________ setPrimaryCall
     public void setPrimaryCall(Call primaryCall) {
+        hideKeyboard();
         cancelRequest();
         this.primaryCall = primaryCall;
     }
@@ -300,6 +303,22 @@ public class VM_Primary {
         this.responseCode = responseCode;
     }
     //_____________________________________________________________________________________________ setResponseCode
+
+
+
+    //______________________________________________________________________________________________ hideKeyboard
+    public void hideKeyboard() {
+        if (getContext() != null) {
+            InputMethodManager imm = (InputMethodManager) getContext().getSystemService(Activity.INPUT_METHOD_SERVICE);
+            View view = getContext().getCurrentFocus();
+            if (view == null) {
+                view = new View(getContext());
+            }
+            if (imm != null)
+                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+    }
+    //______________________________________________________________________________________________ hideKeyboard
 
 
 
