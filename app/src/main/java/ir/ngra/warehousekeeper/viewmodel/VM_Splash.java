@@ -228,6 +228,7 @@ public class VM_Splash extends VM_Primary {
 
         String v = md_hi.getVersion();
         v = v.replaceAll("v", "");
+        v = v.replaceAll("V", "");
         float lastVersion = Float.valueOf(v);
 
 
