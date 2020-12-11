@@ -5,7 +5,8 @@
     android:id="@+id/LinearLayoutWasteSorting"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/edit_normal_background"
+    android:background="@drawable/dw_back_item_ticket"
+    android:padding="@dimen/_4sdp"
     android:orientation="vertical">
 
     <LinearLayout

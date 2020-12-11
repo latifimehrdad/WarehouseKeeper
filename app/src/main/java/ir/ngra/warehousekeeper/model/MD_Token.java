@@ -28,6 +28,10 @@ public class MD_Token {
 
     @SerializedName("refresh_token")
     private String refresh_token;
+
+    @SerializedName("aToken")
+    private String aToken;
+
     //______________________________________________________________________________________________ Value
 
     public String getAccess_token() {
@@ -92,5 +96,14 @@ public class MD_Token {
 
     public void setRefresh_token(String refresh_token) {
         this.refresh_token = refresh_token;
+    }
+
+
+    public String getaToken() {
+        return aToken;
+    }
+
+    public void setaToken(String aToken) {
+        this.aToken = aToken;
     }
 }

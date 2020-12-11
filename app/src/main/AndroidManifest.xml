@@ -13,7 +13,7 @@
     <application
         android:name=".view.application.WarehouseKeeper"
         android:allowBackup="true"
-        android:icon="@drawable/n_wmsicon"
+        android:icon="@drawable/s_wmsicon"
         android:label="@string/app_name"
         android:roundIcon="@drawable/n_wmsicon"
         android:supportsRtl="true"

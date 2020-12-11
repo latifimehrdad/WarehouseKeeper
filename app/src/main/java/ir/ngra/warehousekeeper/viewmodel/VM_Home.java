@@ -4,6 +4,7 @@ import android.app.Activity;
 
 import java.util.List;
 
+import ir.ngra.warehousekeeper.dagger.retrofit.RetrofitApis;
 import ir.ngra.warehousekeeper.dagger.retrofit.RetrofitComponent;
 import ir.ngra.warehousekeeper.model.MD_WasteRequest;
 import ir.ngra.warehousekeeper.model.MR_Primary;
@@ -35,11 +36,14 @@ public class VM_Home extends VM_Primary {
                 .getRetrofitComponent();
 
         String Authorization = getAuthorizationTokenFromSharedPreferences();
+        String aToken = get_aToken();
 
         setPrimaryCall(retrofitComponent
                 .getRetrofitApiInterface()
                 .getWasteCollection(
                         state,
+                        RetrofitApis.app_token,
+                        aToken,
                         Authorization));
 
         getPrimaryCall().enqueue(new Callback<MR_ResponseWaste>() {
@@ -73,11 +77,14 @@ public class VM_Home extends VM_Primary {
                 .getRetrofitComponent();
 
         String Authorization = getAuthorizationTokenFromSharedPreferences();
+        String aToken = get_aToken();
 
         setPrimaryCall(retrofitComponent
                 .getRetrofitApiInterface()
                 .WasteCollectionDeliver(
                         RequestCode,
+                        RetrofitApis.app_token,
+                        aToken,
                         Authorization));
 
         getPrimaryCall().enqueue(new Callback<MR_Primary>() {
@@ -110,11 +117,14 @@ public class VM_Home extends VM_Primary {
                 .getRetrofitComponent();
 
         String Authorization = getAuthorizationTokenFromSharedPreferences();
+        String aToken = get_aToken();
 
         setPrimaryCall(retrofitComponent
                 .getRetrofitApiInterface()
                 .WasteCollectionNotDeliver(
                         RequestCode,
+                        RetrofitApis.app_token,
+                        aToken,
                         Authorization));
 
         getPrimaryCall().enqueue(new Callback<MR_Primary>() {

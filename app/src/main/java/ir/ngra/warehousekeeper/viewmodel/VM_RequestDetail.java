@@ -5,6 +5,7 @@ import android.app.Activity;
 import java.util.ArrayList;
 import java.util.List;
 
+import ir.ngra.warehousekeeper.dagger.retrofit.RetrofitApis;
 import ir.ngra.warehousekeeper.dagger.retrofit.RetrofitComponent;
 import ir.ngra.warehousekeeper.model.MD_Collect;
 import ir.ngra.warehousekeeper.model.MD_ItemWaste;
@@ -45,10 +46,11 @@ public class VM_RequestDetail extends VM_Primary {
                         .getRetrofitComponent();
 
         String Authorization = getAuthorizationTokenFromSharedPreferences();
+        String aToken = get_aToken();
 
         setPrimaryCall(retrofitComponent
                 .getRetrofitApiInterface()
-                .getWasteList(
+                .getWasteList(RetrofitApis.app_token,aToken,
                         Authorization));
 
         getPrimaryCall().enqueue(new Callback<MR_ItemsWast>() {
@@ -86,10 +88,11 @@ public class VM_RequestDetail extends VM_Primary {
                         .getRetrofitComponent();
 
         String Authorization = getAuthorizationTokenFromSharedPreferences();
+        String aToken = get_aToken();
 
         setPrimaryCall(retrofitComponent
                 .getRetrofitApiInterface()
-                .getWeights(
+                .getWeights(RetrofitApis.app_token,aToken,
                         Authorization));
 
         getPrimaryCall().enqueue(new Callback<MR_Weights>() {
@@ -136,11 +139,14 @@ public class VM_RequestDetail extends VM_Primary {
                         .getRetrofitComponent();
 
         String Authorization = getAuthorizationTokenFromSharedPreferences();
+        String aToken = get_aToken();
 
         setPrimaryCall(retrofitComponent
                 .getRetrofitApiInterface()
                 .LadingRequestCollection(
                         wasteAmountRequests,
+                        RetrofitApis.app_token,
+                        aToken,
                         Authorization));
 
         getPrimaryCall().enqueue(new Callback<MR_Primary>() {
@@ -176,12 +182,15 @@ public class VM_RequestDetail extends VM_Primary {
                         .getRetrofitComponent();
 
         String Authorization = getAuthorizationTokenFromSharedPreferences();
+        String aToken = get_aToken();
 
         setPrimaryCall(retrofitComponent
                 .getRetrofitApiInterface()
                 .ConfirmRequest(
                         RequestCode,
                         VerifyCode,
+                        RetrofitApis.app_token,
+                        aToken,
                         Authorization));
 
         getPrimaryCall().enqueue(new Callback<MR_Primary>() {
@@ -221,6 +230,8 @@ public class VM_RequestDetail extends VM_Primary {
                 .getRetrofitApiInterface()
                 .ReTryVerifyCode(
                         RequestCode,
+                        RetrofitApis.app_token,
+                        get_aToken(),
                         Authorization));
 
         getPrimaryCall().enqueue(new Callback<MR_Primary>() {
@@ -255,11 +266,14 @@ public class VM_RequestDetail extends VM_Primary {
                 .getRetrofitComponent();
 
         String Authorization = getAuthorizationTokenFromSharedPreferences();
+        String aToken = get_aToken();
 
         setPrimaryCall(retrofitComponent
                 .getRetrofitApiInterface()
                 .WasteCollectionDeliver(
                         RequestCode,
+                        RetrofitApis.app_token,
+                        aToken,
                         Authorization));
 
         getPrimaryCall().enqueue(new Callback<MR_Primary>() {

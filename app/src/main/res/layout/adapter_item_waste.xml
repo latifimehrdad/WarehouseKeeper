@@ -13,7 +13,7 @@
         android:layout_marginLeft="@dimen/_4sdp"
         android:layout_marginRight="@dimen/_4sdp"
         android:orientation="vertical"
-        android:background="@drawable/edit_normal_background"
+        android:background="@drawable/dw_back_item_ticket"
         android:gravity="center">
 
         <ImageView

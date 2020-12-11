@@ -41,6 +41,7 @@ public class VM_Login extends VM_Primary {
                         RetrofitApis.grant_type_password,
                         PhoneNumber,
                         Password,
+                        RetrofitApis.app_token,
                         authorization));
 
         getPrimaryCall().enqueue(new Callback<MD_Token>() {
@@ -74,10 +75,11 @@ public class VM_Login extends VM_Primary {
                         .getRetrofitComponent();
 
         String Authorization = getAuthorizationTokenFromSharedPreferences();
+        String aToken = get_aToken();
 
         setPrimaryCall(retrofitComponent
                 .getRetrofitApiInterface()
-                .getSettingInfo(
+                .getSettingInfo(RetrofitApis.app_token,aToken,
                         Authorization));
 
         getPrimaryCall().enqueue(new Callback<MD_ProfileInfo>() {

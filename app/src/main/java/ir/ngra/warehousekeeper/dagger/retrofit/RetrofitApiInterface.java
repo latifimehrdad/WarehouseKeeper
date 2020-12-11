@@ -33,7 +33,8 @@ public interface RetrofitApiInterface {
             (
                     @Field("client_id") String client_id,
                     @Field("client_secret") String client_secret,
-                    @Field("grant_type") String grant_type
+                    @Field("grant_type") String grant_type,
+                    @Field("app_token") String app_token
             );
 
 
@@ -44,7 +45,8 @@ public interface RetrofitApiInterface {
             @Field("client_id") String client_id,
             @Field("client_secret") String client_secret,
             @Field("grant_type") String grant_type,
-            @Field("refresh_token") String refresh_token
+            @Field("refresh_token") String refresh_token,
+            @Field("app_token") String app_token
     );
 
 
@@ -99,6 +101,7 @@ public interface RetrofitApiInterface {
                     @Field("grant_type") String grant_type,
                     @Field("username") String PhoneNumber,
                     @Field("Password") String Password,
+                    @Field("app_token") String app_token,
                     @Header("Authorization") String Authorization
 
             );
@@ -107,6 +110,8 @@ public interface RetrofitApiInterface {
     @GET(Version + "/citizen/settinginfo")
     Call<MD_ProfileInfo> getSettingInfo
             (
+                    @Query("app_token") String app_token,
+                    @Header("aToken") String aToken,
                     @Header("Authorization") String Authorization
 
             );
@@ -123,7 +128,8 @@ public interface RetrofitApiInterface {
             (
                     @Field("client_id") String client_id,
                     @Field("client_secret") String client_secret,
-                    @Field("name") String name
+                    @Field("name") String name,
+                    @Field("app_token") String app_token
             );
 
 
@@ -131,6 +137,8 @@ public interface RetrofitApiInterface {
     Call<MR_ResponseWaste> getWasteCollection
             (
                     @Query("State") Byte State,
+                    @Query("app_token") String app_token,
+                    @Header("aToken") String aToken,
                     @Header("Authorization") String Authorization
             );
 
@@ -140,6 +148,8 @@ public interface RetrofitApiInterface {
     Call<MR_Primary> WasteCollectionDeliver
             (
                     @Field("RequestCode") String RequestCode,
+                    @Field("app_token") String app_token,
+                    @Header("aToken") String aToken,
                     @Header("Authorization") String Authorization
             );
 
@@ -149,12 +159,16 @@ public interface RetrofitApiInterface {
     Call<MR_Primary> WasteCollectionNotDeliver
             (
                     @Field("RequestCode") String RequestCode,
+                    @Field("app_token") String app_token,
+                    @Header("aToken") String aToken,
                     @Header("Authorization") String Authorization
             );
 
     @GET(Version + "/Waste/WasteList")
     Call<MR_ItemsWast> getWasteList
             (
+                    @Query("app_token") String app_token,
+                    @Header("aToken") String aToken,
                     @Header("Authorization") String Authorization
 
             );
@@ -164,6 +178,8 @@ public interface RetrofitApiInterface {
     @GET(Version + "/utility/getWeights")
     Call<MR_Weights> getWeights
             (
+                    @Query("app_token") String app_token,
+                    @Header("aToken") String aToken,
                     @Header("Authorization") String Authorization
 
             );
@@ -173,6 +189,8 @@ public interface RetrofitApiInterface {
     Call<MR_Primary> LadingRequestCollection
             (
                     @Body MD_WasteAmountRequests WasteAmountRequests,
+                    @Field("app_token") String app_token,
+                    @Header("aToken") String aToken,
                     @Header("Authorization") String Authorization
 
             );
@@ -184,6 +202,8 @@ public interface RetrofitApiInterface {
             (
                     @Field("RequestCode") String RequestCode,
                     @Field("Code") String Code,
+                    @Field("app_token") String app_token,
+                    @Header("aToken") String aToken,
                     @Header("Authorization") String Authorization
             );
 
@@ -193,6 +213,8 @@ public interface RetrofitApiInterface {
     Call<MR_Primary> ReTryVerifyCode
             (
                     @Field("RequestCode") String RequestCode,
+                    @Field("app_token") String app_token,
+                    @Header("aToken") String aToken,
                     @Header("Authorization") String Authorization
             );
 

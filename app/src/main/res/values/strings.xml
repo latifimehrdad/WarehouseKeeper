@@ -61,6 +61,7 @@
     <string name="ML_UpdateUrl">UpdateUrl</string>
     <string name="ML_UpdateFile">UpdateFile</string>
     <string name="ML_RequestCode">RequestCode</string>
+    <string name="ML_aToken">ML_aToken</string>
 
 
 

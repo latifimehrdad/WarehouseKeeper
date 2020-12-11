@@ -75,7 +75,8 @@ public class VM_Splash extends VM_Primary {
                 .getToken(
                         RetrofitApis.client_id_value,
                         RetrofitApis.client_secret_value,
-                        RetrofitApis.grant_type_value));
+                        RetrofitApis.grant_type_value,
+                        RetrofitApis.app_token));
 
         getPrimaryCall().enqueue(new Callback<MD_Token>() {
             @Override
@@ -107,10 +108,11 @@ public class VM_Splash extends VM_Primary {
                         .getRetrofitComponent();
 
         String authorization = getAuthorizationTokenFromSharedPreferences();
+        String aToken = get_aToken();
 
         setPrimaryCall(retrofitComponent
                 .getRetrofitApiInterface()
-                .getSettingInfo(
+                .getSettingInfo(RetrofitApis.app_token,aToken,
                         authorization));
 
         getPrimaryCall().enqueue(new Callback<MD_ProfileInfo>() {
@@ -155,7 +157,8 @@ public class VM_Splash extends VM_Primary {
                         RetrofitApis.client_id_value,
                         RetrofitApis.client_secret_value,
                         RetrofitApis.grant_type_value_Refresh_Token,
-                        refresh_token));
+                        refresh_token,
+                        RetrofitApis.app_token));
 
         getPrimaryCall().enqueue(new Callback<MD_Token>() {
             @Override
@@ -193,7 +196,8 @@ public class VM_Splash extends VM_Primary {
                 .getRetrofitApiInterface()
                 .getHi(RetrofitApis.client_id_value,
                         RetrofitApis.client_secret_value,
-                        getContext().getResources().getString(R.string.UpdateAppName)));
+                        getContext().getResources().getString(R.string.UpdateAppName),
+                        RetrofitApis.app_token));
 
         getPrimaryCall().enqueue(new Callback<MR_Hi>() {
             @Override

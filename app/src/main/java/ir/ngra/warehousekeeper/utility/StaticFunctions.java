@@ -33,6 +33,7 @@ public class StaticFunctions {
         token.putString(context.getString(R.string.ML_Issued), MDToken.getIssued());
         token.putString(context.getString(R.string.ML_Expires), MDToken.getExpires());
         token.putString(context.getString(R.string.ML_RefreshToken), MDToken.getRefresh_token());
+        token.putString(context.getString(R.string.ML_aToken), MDToken.getaToken());
         token.apply();
         return true;
 
@@ -53,6 +54,7 @@ public class StaticFunctions {
         token.putString(context.getString(R.string.ML_ClientId), null);
         token.putString(context.getString(R.string.ML_Issued), null);
         token.putString(context.getString(R.string.ML_Expires), null);
+        token.putString(context.getString(R.string.ML_aToken), null);
         token.apply();
         return true;
     }
