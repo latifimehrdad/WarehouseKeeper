@@ -131,7 +131,7 @@ public class VM_RequestDetail extends VM_Primary {
             collects.add(new MD_Collect(waste,wasteList.getAmount2(), weight2));
         }
 
-        MD_WasteAmountRequests wasteAmountRequests = new MD_WasteAmountRequests(RequestCode, collects);
+        MD_WasteAmountRequests wasteAmountRequests = new MD_WasteAmountRequests(RequestCode, collects, RetrofitApis.app_token);
 
         RetrofitComponent retrofitComponent =
                 WarehouseKeeper
@@ -145,7 +145,6 @@ public class VM_RequestDetail extends VM_Primary {
                 .getRetrofitApiInterface()
                 .LadingRequestCollection(
                         wasteAmountRequests,
-                        RetrofitApis.app_token,
                         aToken,
                         Authorization));
 

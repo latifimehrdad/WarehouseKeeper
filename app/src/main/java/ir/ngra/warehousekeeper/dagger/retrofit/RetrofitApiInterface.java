@@ -189,7 +189,6 @@ public interface RetrofitApiInterface {
     Call<MR_Primary> LadingRequestCollection
             (
                     @Body MD_WasteAmountRequests WasteAmountRequests,
-                    @Field("app_token") String app_token,
                     @Header("aToken") String aToken,
                     @Header("Authorization") String Authorization
 
