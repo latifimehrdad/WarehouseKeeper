@@ -154,8 +154,18 @@ public interface RetrofitApiInterface {
             );
 
 
-    @FormUrlEncoded
+/*    @FormUrlEncoded
     @POST(Version + "/requestwarehouse/warehousenotdelivered")
+    Call<MR_Primary> WasteCollectionNotDeliver
+            (
+                    @Field("RequestCode") String RequestCode,
+                    @Field("app_token") String app_token,
+                    @Header("aToken") String aToken,
+                    @Header("Authorization") String Authorization
+            );*/
+
+    @FormUrlEncoded
+    @POST(Version + "/requestwarehouse/wastecollectionnotdelivered")
     Call<MR_Primary> WasteCollectionNotDeliver
             (
                     @Field("RequestCode") String RequestCode,
