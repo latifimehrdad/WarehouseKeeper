@@ -128,6 +128,11 @@ public class FR_Home extends FR_Primary implements
             return;
         }
 
+        if (action.equals(StaticValues.WasteCollectionStateDelivered)) {
+            getListOfRequest();
+            return;
+        }
+
     }
     //______________________________________________________________________________________________ getMessageFromObservable
 
