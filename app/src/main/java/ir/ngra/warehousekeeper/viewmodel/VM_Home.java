@@ -132,6 +132,7 @@ public class VM_Home extends VM_Primary {
             public void onResponse(Call<MR_Primary> call, Response<MR_Primary> response) {
                 setResponseMessage(checkResponse(response, false));
                 if (getResponseMessage() == null) {
+                    setResponseMessage(getResponseMessage(response.body()));
                     sendActionToObservable(StaticValues.WasteCollectionStateNoDelivery);
                 } else {
                     sendActionToObservable(StaticValues.ML_ResponseError);
