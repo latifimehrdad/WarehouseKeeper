@@ -5,7 +5,8 @@ public class RetrofitApis {
     //    public static String Host = "http://185.159.87.205:70";
     //public static String Host = "https://ngra.bimija.com";
     //public static String Host = "http://192.168.1.110:70";
-    public static String Host = "http://samtam.app.ngraapp.ir";
+    public static String Host = "http://samtam.demo.ngraapp.ir";
+//    public static String Host = "http://samtam.app.ngraapp.ir";
 //    public static String Host = "http://bazyaft.app.ngraapp.ir";
 
 //    public static String client_id_value = "vRIzEFYjpzYwHHSUbx/ODg==";
